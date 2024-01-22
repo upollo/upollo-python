@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="upollo-python",
-    version="0.1.0",
+    version="0.1.1",
     author="Upollo",
     description="",
     long_description=long_description,

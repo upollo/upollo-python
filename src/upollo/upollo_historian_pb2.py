@@ -15,9 +15,10 @@ _sym_db = _symbol_database.Default()
 
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from upollo import upollo_shadow_pb2 as upollo_dot_upollo__shadow__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1dupollo/upollo_historian.proto\x12\x06uwGrpc\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x12\n\x10LogEntryResponse\"\xa2\x02\n\x08LogEntry\x12%\n\x08severity\x18\x01 \x01(\x0e\x32\x13.uwGrpc.LogSeverity\x12-\n\ttimestamp\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x16\n\x0ctext_payload\x18\x03 \x01(\tH\x00\x12/\n\x0cjson_payload\x18\x04 \x01(\x0b\x32\x17.google.protobuf.StructH\x00\x12\r\n\x05trace\x18\x05 \x01(\t\x12\x0f\n\x07span_id\x18\x06 \x01(\t\x12\x37\n\x0fsource_location\x18\x07 \x01(\x0b\x32\x1e.uwGrpc.LogEntrySourceLocation\x12\x13\n\x0bsource_name\x18\x08 \x01(\tB\t\n\x07payload\"F\n\x16LogEntrySourceLocation\x12\x0c\n\x04\x66ile\x18\x01 \x01(\t\x12\x0c\n\x04line\x18\x02 \x01(\x03\x12\x10\n\x08\x66unction\x18\x03 \x01(\t*\xf7\x01\n\x0bLogSeverity\x12\x18\n\x14LOG_SEVERITY_DEFAULT\x10\x00\x12\x16\n\x12LOG_SEVERITY_DEBUG\x10\x64\x12\x16\n\x11LOG_SEVERITY_INFO\x10\xc8\x01\x12\x18\n\x13LOG_SEVERITY_NOTICE\x10\xac\x02\x12\x19\n\x14LOG_SEVERITY_WARNING\x10\x90\x03\x12\x17\n\x12LOG_SEVERITY_ERROR\x10\xf4\x03\x12\x1a\n\x15LOG_SEVERITY_CRITICAL\x10\xd8\x04\x12\x17\n\x12LOG_SEVERITY_ALERT\x10\xbc\x05\x12\x1b\n\x16LOG_SEVERITY_EMERGENCY\x10\xa0\x06\x32I\n\tHistorian\x12<\n\x0eReportLogEntry\x12\x10.uwGrpc.LogEntry\x1a\x18.uwGrpc.LogEntryResponseBL\n\x0e\x61i.upollo.grpcP\x01Z/github.com/userwatch/uw1/protos/uwgrpchistorian\xa2\x02\x06UwGrpcb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1dupollo/upollo_historian.proto\x12\x06uwGrpc\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1aupollo/upollo_shadow.proto\"\x12\n\x10LogEntryResponse\"\xc8\x02\n\x08LogEntry\x12%\n\x08severity\x18\x01 \x01(\x0e\x32\x13.uwGrpc.LogSeverity\x12-\n\ttimestamp\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x16\n\x0ctext_payload\x18\x03 \x01(\tH\x00\x12/\n\x0cjson_payload\x18\x04 \x01(\x0b\x32\x17.google.protobuf.StructH\x00\x12\r\n\x05trace\x18\x05 \x01(\t\x12\x0f\n\x07span_id\x18\x06 \x01(\t\x12\x37\n\x0fsource_location\x18\x07 \x01(\x0b\x32\x1e.uwGrpc.LogEntrySourceLocation\x12\x17\n\x0bsource_name\x18\x08 \x01(\tB\x02\x18\x01\x12 \n\x07library\x18\t \x01(\x0b\x32\x0f.uwGrpc.LibraryB\t\n\x07payload\"F\n\x16LogEntrySourceLocation\x12\x0c\n\x04\x66ile\x18\x01 \x01(\t\x12\x0c\n\x04line\x18\x02 \x01(\x03\x12\x10\n\x08\x66unction\x18\x03 \x01(\t*\xf7\x01\n\x0bLogSeverity\x12\x18\n\x14LOG_SEVERITY_DEFAULT\x10\x00\x12\x16\n\x12LOG_SEVERITY_DEBUG\x10\x64\x12\x16\n\x11LOG_SEVERITY_INFO\x10\xc8\x01\x12\x18\n\x13LOG_SEVERITY_NOTICE\x10\xac\x02\x12\x19\n\x14LOG_SEVERITY_WARNING\x10\x90\x03\x12\x17\n\x12LOG_SEVERITY_ERROR\x10\xf4\x03\x12\x1a\n\x15LOG_SEVERITY_CRITICAL\x10\xd8\x04\x12\x17\n\x12LOG_SEVERITY_ALERT\x10\xbc\x05\x12\x1b\n\x16LOG_SEVERITY_EMERGENCY\x10\xa0\x06\x32I\n\tHistorian\x12<\n\x0eReportLogEntry\x12\x10.uwGrpc.LogEntry\x1a\x18.uwGrpc.LogEntryResponseBH\n\x0e\x61i.upollo.grpcP\x01Z+github.com/userwatch/uw1/protos/pbhistorian\xa2\x02\x06UpGrpcb\x06proto3')
 
 _LOGSEVERITY = DESCRIPTOR.enum_types_by_name['LogSeverity']
 LogSeverity = enum_type_wrapper.EnumTypeWrapper(_LOGSEVERITY)
@@ -60,15 +61,17 @@ _HISTORIAN = DESCRIPTOR.services_by_name['Historian']
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\016ai.upollo.grpcP\001Z/github.com/userwatch/uw1/protos/uwgrpchistorian\242\002\006UwGrpc'
-  _LOGSEVERITY._serialized_start=490
-  _LOGSEVERITY._serialized_end=737
-  _LOGENTRYRESPONSE._serialized_start=104
-  _LOGENTRYRESPONSE._serialized_end=122
-  _LOGENTRY._serialized_start=125
-  _LOGENTRY._serialized_end=415
-  _LOGENTRYSOURCELOCATION._serialized_start=417
-  _LOGENTRYSOURCELOCATION._serialized_end=487
-  _HISTORIAN._serialized_start=739
-  _HISTORIAN._serialized_end=812
+  DESCRIPTOR._serialized_options = b'\n\016ai.upollo.grpcP\001Z+github.com/userwatch/uw1/protos/pbhistorian\242\002\006UpGrpc'
+  _LOGENTRY.fields_by_name['source_name']._options = None
+  _LOGENTRY.fields_by_name['source_name']._serialized_options = b'\030\001'
+  _LOGSEVERITY._serialized_start=556
+  _LOGSEVERITY._serialized_end=803
+  _LOGENTRYRESPONSE._serialized_start=132
+  _LOGENTRYRESPONSE._serialized_end=150
+  _LOGENTRY._serialized_start=153
+  _LOGENTRY._serialized_end=481
+  _LOGENTRYSOURCELOCATION._serialized_start=483
+  _LOGENTRYSOURCELOCATION._serialized_end=553
+  _HISTORIAN._serialized_start=805
+  _HISTORIAN._serialized_end=878
 # @@protoc_insertion_point(module_scope)

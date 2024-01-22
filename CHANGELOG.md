@@ -12,6 +12,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Removed
 
+## [0.1.1] 2024-01-22
+
+### Added
+
+- TRIALED_ON_OTHER_ACCOUNT flag type, which is available for customers with billing
+  and subscription data connected.
+- COMMERCIAL_USER, PAYMENT_NAME_DIFFERS and LIMITED_DEVICE_INFORMATION flag types.
 
 ## [0.1.0] 2022-09-26
 
